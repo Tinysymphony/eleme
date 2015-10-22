@@ -1,0 +1,79 @@
+$itemHeight: 140px;
+$picContainerWidth: 110px;
+$commonPadding: 20px;
+$picSize: 70px;
+$imgBackground: #DDEAE9;
+$infoBackground: #FFF;
+
+/* #F1C591; */
+
+.item {
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 1px solid #999;
+  height: $itemHeight;
+  width: 25%;
+  margin: 0px;
+  span {
+    font-size: 12px;
+  }
+}
+
+.item-img {
+  box-sizing: inherit;
+  float: left;
+  padding: $commonPadding;
+  width: $picContainerWidth;
+  height: $itemHeight;
+  text-align: center;
+  z-index: 10;
+}
+
+.item-img-container {
+  box-sizing: inherit;
+  height: 100%;
+  width: 100%;
+  // background-color: $imgBackground;
+}
+
+.item-info {
+  box-sizing: inherit;
+  // margin-left: $picWidth;
+  background-color: $infoBackground;
+  height: 100%;
+  padding: $commonPadding;
+  h3, p {
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  h3 {
+    margin-bottom: 10px;
+  }
+  i {
+    font-size: 11px;
+    color: orange;
+  }
+  p {
+    margin-bottom: 5px;
+    color: #AAA;
+  }
+}
+
+.item-info-container {
+  margin-left: ($picContainerWidth - $commonPadding);
+}
+
+.img-src {
+  display: block;
+  width: $picSize;
+  height: $picSize;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1250px) {
+  .item {
+    width: 33.33%;
+  }
+}

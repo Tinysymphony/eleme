@@ -1,0 +1,28 @@
+@import "../../css/global.scss";
+
+/* div */.mainlist {
+  position: relative;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: $minWidth;
+  max-width: $maxWidth;
+  min-height: $minHight;
+  .top-selector {
+    line-height: 40px;
+  }
+  .top-item {
+    display: inline-block;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.5s;
+    &.focus {
+      color: #900;
+    }
+  }
+}

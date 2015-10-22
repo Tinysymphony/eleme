@@ -1,0 +1,143 @@
+@import "../../../css/global.scss";
+
+$hover: #F2F2F2;
+$font: #555;
+
+/* div */.foodSelector {
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  color: #AAA;
+  font-size: 15px;
+  .selectors {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 1000px;
+    max-width: 1400px;
+    background: $mainWhite;
+    border: 1px solid #BBB;
+    .type-container {
+      display: inline-block;
+    }
+    .type-selector{
+      line-height: 60px;
+      .type-label {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        margin: 0px, 10px;
+      }
+      a {
+        display: inline-block;
+        line-height: 28px;
+        white-space: nowrap;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 3px;
+        color: $font;
+        &:hover {
+          background-color: $hover;
+        }
+        &.selected{
+          background-color: $mainBlue;
+          color: $mainWhite;
+        }
+        &.sub-selected {
+          border-radius: 0px;
+          background-color: $hover;
+          line-height: 40px;
+        }
+      }
+    }
+    .sub-selector {
+      position: relative;
+      background-color: $hover;
+      border-radius: 3px;
+      width: auto;
+      line-height: 45px;
+      margin-left: 100px;
+      margin-right: 10px;
+      top: -10px;
+    }
+    .sort-selector, .radio-selector{
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+      height: 40px;
+      line-height: 40px;
+      background-color: $hover;
+      left: 0;
+      width: 50%;
+    }
+    .sort-selector {
+      padding-left: 10px;
+    }
+    .sort-item {
+      display: inline-block;
+      margin-left: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .sorted, .sorted1, .sorted2 {
+      color: $mainBlue;
+    }
+    .radio-item {
+      display: inline-block;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .radios {
+      margin-right: 20px;
+      text-align: center;
+      color: $font;
+    }
+    .single-sort {
+      display: inline-block;
+    }
+    .multi-sort {
+      display: inline-block;
+      position: relative;
+      .fa-angle-up {
+        display: none;
+      }
+      .fa-angle-down {
+        display: inline-block;
+      }
+      &:hover {
+        background-color: $mainWhite;
+        box-shadow: 0px 2px 5px #999;
+        .fa-angle-up {
+          display: inline-block;
+        }
+        .fa-angle-down {
+          display: none;
+        }
+        .multi-list {
+          display: block;
+          box-shadow: 0px 2px 3px #999;
+        }
+      }
+    }
+    .multi-list{
+      position: absolute;
+      display: none;
+      box-sizing: border-box;
+      background-color: $mainWhite;
+      padding-left: 10px;
+      padding-right: 20px;
+      width: 100%;
+    }
+    .multi-drop-down {
+      display: block;
+      cursor: pointer;
+      &:hover {
+        color: $mainBlue;
+      }
+    }
+  }
+}

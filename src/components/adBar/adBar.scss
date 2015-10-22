@@ -1,0 +1,30 @@
+@import "../../css/global.scss";
+
+$adHeight: 120px;
+
+/* section */#scrollBar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $adHeight;
+  margin-top: 25px;
+  .centerBar {
+    box-sizing: border-box;
+    background-color: #FFF;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    min-width: $minWidth;
+    max-width: $maxWidth;
+    border: 3px solid $mainBlue;
+    border-radius: 3px;
+    text-align: center;
+    line-height: $adHeight;
+    a {
+      display: inline-block;
+      font-size: 4em;
+    }
+  }
+}

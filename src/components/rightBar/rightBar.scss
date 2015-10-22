@@ -1,0 +1,11 @@
+@import "../../css/global.scss";
+
+#rightBar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: $rightBarWidth;
+  background-color: $mainBlack;
+  z-index: 1000;
+}

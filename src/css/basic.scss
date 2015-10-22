@@ -1,0 +1,41 @@
+
+/* defination of basic colors */
+
+@import "./global.scss";
+@import "article/article.scss";
+@import "button/button.scss";
+
+html, body, div, header, footer, h1, h2, h3 ,h4, p, ul, li, section{
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  ul {
+    list-style-type: none;
+  }
+  a {
+    color: #333;
+    text-decoration: none !important;
+  }
+  background-color: $back;
+}
+
+#main {
+  position: relative;
+  top: 0;
+  width: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.main-content {
+  margin-right: $rightBarWidth;
+}

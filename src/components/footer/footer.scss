@@ -1,0 +1,20 @@
+@import "../../css/global.scss";
+
+#footer {
+  position: relative;
+  bottom: 0px;
+  margin-top: 30px;
+  background-color: #333;
+  min-height: 70px;
+  width: 100%;
+}
+
+.reFooter {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  p {
+    text-align: center;
+    color: $back;
+  }
+}
