@@ -10,8 +10,13 @@
   min-height: $minHight;
   .top-selector {
     line-height: 40px;
+    border-bottom: 1px solid #999;
+    a:hover {
+      background-color: transparent;
+    }
   }
   .top-item {
+    // box-sizing: border-box;
     display: inline-block;
     text-align: center;
     padding-left: 20px;
@@ -20,9 +25,9 @@
     line-height: 40px;
     font-size: 1.2em;
     cursor: pointer;
-    transition: 0.5s;
     &.focus {
-      color: #900;
+      color: $mainBlue;
+      border-bottom: 3px solid $mainBlue;
     }
   }
 }

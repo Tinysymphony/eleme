@@ -3,3 +3,4 @@ build/
 prebuild/
 lib/
 dist/
+*DS_Store*

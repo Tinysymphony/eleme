@@ -9,12 +9,12 @@ $font: #555;
   left: 0;
   top: 0;
   color: #AAA;
-  font-size: 15px;
+  font-size: 14px;
   .selectors {
     margin-left: auto;
     margin-right: auto;
-    min-width: 1000px;
-    max-width: 1400px;
+    // min-width: 1000px;
+    // max-width: 1400px;
     background: $mainWhite;
     border: 1px solid #BBB;
     .type-container {
@@ -99,30 +99,7 @@ $font: #555;
     .single-sort {
       display: inline-block;
     }
-    .multi-sort {
-      display: inline-block;
-      position: relative;
-      .fa-angle-up {
-        display: none;
-      }
-      .fa-angle-down {
-        display: inline-block;
-      }
-      &:hover {
-        background-color: $mainWhite;
-        box-shadow: 0px 2px 5px #999;
-        .fa-angle-up {
-          display: inline-block;
-        }
-        .fa-angle-down {
-          display: none;
-        }
-        .multi-list {
-          display: block;
-          box-shadow: 0px 2px 3px #999;
-        }
-      }
-    }
+
     .multi-list{
       position: absolute;
       display: none;
@@ -131,6 +108,7 @@ $font: #555;
       padding-left: 10px;
       padding-right: 20px;
       width: 100%;
+      z-index: 1000;
     }
     .multi-drop-down {
       display: block;
@@ -138,6 +116,65 @@ $font: #555;
       &:hover {
         color: $mainBlue;
       }
+    }
+  }
+}
+
+.multi-sort {
+  display: inline-block;
+  position: relative;
+  .fa-angle-up {
+    display: none;
+  }
+  .fa-angle-down {
+    display: inline-block;
+  }
+  &:hover {
+    background-color: $mainWhite;
+    box-shadow: 0px 2px 5px #999;
+    .fa-angle-up {
+      display: inline-block;
+    }
+    .fa-angle-down {
+      display: none;
+    }
+    .multi-list {
+      display: block;
+      // position: fixed;
+      box-shadow: 0px 2px 3px #999;
+      // z-index: 20px;
+    }
+  }
+}
+
+#active-selector {
+  &.acitve-mode-fix {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    height: 40px;
+    width: 100%;
+    padding-right: $rightBarWidth;
+    // overflow: hidden;
+    .multi-list {
+      // position: fixed;
+      position: absolute;
+      z-index: 125;
+    }
+    .sort-selector, .radio-selector {
+      width: auto;
+    }
+    #active-selector-container {
+      height: 40px;
+      position: relative;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: $hover;
+      min-width: $minWidth;
+      max-width: $maxWidth;
     }
   }
 }

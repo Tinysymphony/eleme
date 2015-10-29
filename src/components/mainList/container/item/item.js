@@ -1,20 +1,14 @@
 require('./item.scss');
 
-var picsArray = [
-  {id: "", src=""},
-  {id: "", src=""},
-  {id: "", src=""},
-  {id: "", src=""},
-  {id: "", src=""}
-];
+var logoArray = ["di", "fu", "jian", "pao", "piao", "shou", "zhuan"];
 
 var ItemImage = React.createClass({
   render: function(){
     return (
       <div className="item-img">
         <div className="item-img-container">
-          <img className="img-src" src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicrin.jpg" />
-          <span>30 min</span>
+          <img className="img-src" src={this.props.src} />
+          <span>{this.props.time} min</span>
         </div>
       </div>
     );
@@ -41,44 +35,99 @@ var StarsSales = React.createClass({
   }
 });
 
-var PriceDelivery = React.createClass({
+var StorePics = React.createClass({
   render: function(){
-    var delivery = (this.props.delivery)? "配送费" + this.props.delivery + "元" : "免费配送";
-    return <p>{this.props.price}元起送&nbsp;/&nbsp;{delivery}</p>
+    var pics = this.props.pics.map(function(item){
+      return <img src={item.src}/>;
+    });
+    return <p>{pics}</p>;
   }
 });
 
-var StorePics = React.createClass({
-  var pics = this.props.pics.map(function(item){
-    return <img src={item.src}/>
-  });
+var PriceDelivery = React.createClass({
   render: function(){
-    return <p>{pics}</p>
+    var delivery = (this.props.delivery)? "配送费" + this.props.delivery + "元" : "免费配送";
+    return <p>{this.props.price}元起送&nbsp;/&nbsp;{delivery}</p>;
+  }
+});
+
+var Logos = React.createClass({
+  render: function(){
+    var logos = this.props.describe.map(function(item){
+      return <i className={"sprite " + "sprite-" + logoArray[item.index]}></i>;
+    });
+    return <p>{logos}</p>;
   }
 });
 
 var ItemInfo = React.createClass({
   render: function(){
-    var title = "internet server IDEA basic length is not";
+    var data = this.props.data;
     return (
       <div className="item-info">
         <div className="item-info-container">
-          <h3>{title}</h3>
-          <StarsSales score={3.5} sales={1024}/>
-          <PriceDelivery price={20} delivery={3}/>
-          // <StorePics pics={}/>
+          <h3>{data.title}</h3>
+          <StarsSales score={data.score} sales={data.sales}/>
+          <PriceDelivery price={data.price} delivery={data.delivery}/>
+          <Logos describe={data.describe}/>
         </div>
       </div>
     );
   }
 });
 
-var Item = React.createClass({
+var Hover = React.createClass({
+  calDirection: function(tag){
+    var MAX = 1250;
+    if($(window).width() < MAX){
+      if(tag % 3 == 0)
+        return "hoverItem-right";
+      return "hoverItem-left";
+    } else {
+      if(tag % 4 == 3)
+        return "hoverItem-left";
+      return "hoverItem-right";
+    }
+  },
   render: function(){
+    var data = this.props.data;
+    var direction = this.calDirection(this.props.tag);
+    var triangle = /left/.test(direction) ? "triangle-left" : "triangle-right";
+    var contents = data.describe.map(function(item){
+      return (<div className="describe-section"><i className={"sprite " + "sprite-" + logoArray[item.index]}></i><p>{item.text}</p></div>);
+    });
     return (
-      <div className="item">
-        <ItemImage />
-        <ItemInfo />
+      <div className={direction}>
+        <h3>{data.title}</h3>
+        <hr/>
+        {contents}
+        <div className={triangle}></div>
+        <div className={triangle+"-border"}></div>
+      </div>
+    );
+  }
+});
+
+var Item = React.createClass({
+  getInitialState: function(){
+    return {hover: 0};
+  },
+  handleHover: function(){
+    this.setState({hover: 1});
+  },
+  handleLeave: function(){
+    this.setState({hover: 0});
+  },
+  render: function(){
+    var hover = this.state.hover ? <Hover tag={this.props.tag} data={this.props.data}/> : null;
+    var cname = "item " + "item-" + this.props.tag;
+    return (
+      <div className={cname}>
+        <div className="item-content" onMouseOver={this.handleHover} onMouseLeave={this.handleLeave}>
+          <ItemImage src={this.props.data.src} time={30}/>
+          <ItemInfo data={this.props.data}/>
+        </div>
+        {hover}
       </div>
     );
   }

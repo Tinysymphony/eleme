@@ -4,7 +4,7 @@ var AdBar = React.createClass({
   render: function(){
     return (
       <div className="centerBar">
-        <a>ご注文は翔鶴ですか</a>
+        <a>饱了么广告位招租</a>
       </div>
     );
   }

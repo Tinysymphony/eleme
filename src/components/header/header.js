@@ -5,7 +5,7 @@ var Header = React.createClass({
     return (
       <div className="reHeader">
         <div className="header-container">
-          <a id="logo" href="http://www.wytiny.me">ELEME</a>
+          <a id="logo" href="http://www.wytiny.me"><img src="http://7xjgb0.com1.z0.glb.clouddn.com/elebaoleme.png" /></a>
           <nav className="main-nav">
             <a id="top" href="#" className="focus">首页</a>
             <a id="brand" href="#">品牌商家</a>

@@ -28,6 +28,9 @@ module.exports = {
     }, {
       test: /\.woff$/,
       loader: 'url?limit=100000'
+    }, {
+      test: /\.(png|jpg)$/,
+      loader: 'url?limit=8192'
     }]
   },
   resolve: {

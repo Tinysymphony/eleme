@@ -1,20 +1,112 @@
 @import "../../css/global.scss";
 
 #footer {
+  box-sizing: border-box;
   position: relative;
-  bottom: 0px;
+  top: 0;
+  border-top: 1px solid #CCC;
   margin-top: 30px;
-  background-color: #333;
-  min-height: 70px;
+  padding-right: $rightBarWidth;
+  min-height: 200px;
   width: 100%;
 }
 
+.tinyList {
+  top: 0;
+  float: left;
+  margin-left: 70px;
+  font-size: 12px;
+}
+
 .reFooter {
-  width: 100%;
-  position: absolute;
-  bottom: 30px;
-  p {
-    text-align: center;
-    color: $back;
+  box-sizing: border-box;
+  position: relative;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: $minWidth;
+  max-width: $maxWidth;
+
+  li:nth-child(1) {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
   }
+
+  li {
+    cursor: pointer;
+    color: #999;
+  }
+
+  ul:nth-child(1) {
+    margin-left: 0;
+  }
+
+  img {
+    display: inline-block;
+    margin-left: 70px;
+    float: left;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.list-container {
+  position: relative;
+  margin-top: 40px;
+  box-sizing: inherit;
+}
+
+.footerSlash {
+  top: 0;
+  float: left;
+  margin-left: 60px;
+  width: 1px;
+  height: 100px;
+  background-color: #AAA;
+}
+
+.footerContact {
+  top: 0;
+  margin-left: 60px;
+  float: left;
+  font-size: 13px;
+  p:nth-child(1){
+    margin-top: 0px;
+  }
+  p {
+    margin-top: 10px;
+  }
+  i {
+    cursor: pointer;
+    color: #AAA;
+    font-size: 20px;
+    margin-left: 5px;
+    transition: 0.5s;
+    &:hover {
+      color: #333;
+    }
+  }
+}
+
+.downloading {
+  clear: both;
+  position: absolute;
+  right: 0;
+  p {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+}
+
+.copyright-container {
+  clear: both;
+  display: block;
+  position: relative;
+  top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  color: #AAA;
+  font-size: 12px;
 }

@@ -252,6 +252,25 @@ var Selector = React.createClass({
   changeState: function(o){
     this.setState(o);
   },
+  componentDidMount: function(){
+    var tag = $("#active-tag");
+    var active = $("#active-selector");
+    var list = $(".multi-list");
+    var className = "acitve-mode-fix";
+    $(window).bind("scroll", function(){
+      if($("body").scrollTop() > tag.offset().top){
+        active.addClass(className);
+        list.each(function(){
+          $(this).css({"width": $(this).parent().width()});
+        });
+      } else {
+        active.removeClass(className);
+      }
+    });
+  },
+  componentWillUnmount: function(){
+    $(window).unbind("scroll");
+  },
   render: function(){
     console.log(this.state);
     if(this.props.page == 1){
@@ -259,8 +278,13 @@ var Selector = React.createClass({
         <div className="foodSelector">
           <div className="selectors">
             <TypeSelector callback={this.changeState}/>
-            <SortSelector callback={this.changeState}/>
-            <RadioSelector callback={this.changeState}/>
+            <div id="active-tag"></div>
+            <div id="active-selector">
+              <div id="active-selector-container">
+                <SortSelector callback={this.changeState}/>
+                <RadioSelector callback={this.changeState}/>
+              </div>
+            </div>
           </div>
           <Container selector={this.state}/>
         </div>

@@ -2,45 +2,55 @@ $itemHeight: 140px;
 $picContainerWidth: 110px;
 $commonPadding: 20px;
 $picSize: 70px;
+$hoverPadding: 15px;
+$triangleSize: 8px;
+$triangleBorderSize: $triangleSize + 3px;
+
 $imgBackground: #DDEAE9;
 $infoBackground: #FFF;
+$hoverColor: white;
+$borderColor: #D3D3D3;
 
-/* #F1C591; */
+@import "../../../../css/global.scss";
 
 .item {
   display: inline-block;
-  box-sizing: border-box;
+  position: relative;
   border-bottom: 1px solid #999;
   height: $itemHeight;
   width: 25%;
   margin: 0px;
+  cursor: pointer;
   span {
     font-size: 12px;
+  }
+  &:hover {
+    .item-img, .item-info {
+      background-color: $back;
+    }
   }
 }
 
 .item-img {
-  box-sizing: inherit;
+  box-sizing: border-box;
   float: left;
   padding: $commonPadding;
   width: $picContainerWidth;
   height: $itemHeight;
   text-align: center;
-  z-index: 10;
+  // z-index: 10;
 }
 
 .item-img-container {
-  box-sizing: inherit;
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
-  // background-color: $imgBackground;
 }
 
 .item-info {
-  box-sizing: inherit;
-  // margin-left: $picWidth;
+  box-sizing: border-box;
   background-color: $infoBackground;
-  height: 100%;
+  height: $itemHeight;
   padding: $commonPadding;
   h3, p {
     color: #555;
@@ -56,7 +66,7 @@ $infoBackground: #FFF;
     color: orange;
   }
   p {
-    margin-bottom: 5px;
+    margin-top: 5px;
     color: #AAA;
   }
 }
@@ -70,6 +80,145 @@ $infoBackground: #FFF;
   width: $picSize;
   height: $picSize;
   margin-bottom: 10px;
+}
+
+.sprite {
+    background-image: url("spritesheet.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 5px;
+    zoom: 0.35;
+    -moz-transform: scale(0.4);
+}
+
+.sprite-di {
+    width: 50px;
+    height: 50px;
+    background-position: -5px -5px;
+}
+
+.sprite-fu {
+    width: 50px;
+    height: 50px;
+    background-position: -65px -5px;
+}
+
+.sprite-jian {
+    width: 50px;
+    height: 50px;
+    background-position: -125px -5px;
+}
+
+.sprite-pao {
+    width: 50px;
+    height: 50px;
+    background-position: -185px -5px;
+}
+
+.sprite-piao {
+    width: 50px;
+    height: 50px;
+    background-position: -5px -65px;
+}
+
+.sprite-pinpai {
+    width: 200px;
+    height: 200px;
+    background-position: -245px -5px;
+}
+
+.sprite-shou {
+    width: 50px;
+    height: 50px;
+    background-position: -5px -215px;
+}
+
+.sprite-zhuan {
+    width: 50px;
+    height: 50px;
+    background-position: -65px -215px;
+}
+
+
+.triangle-left, .triangle-right, .triangle-left-border, .triangle-right-border {
+  position: absolute;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  top: 20px;
+  border-width: $triangleSize;
+  border-color: red;
+  overflow: hidden;
+  z-index: 22;
+}
+
+.triangle-right, .triangle-right-border {
+  left: -2 * $triangleSize;
+  border-style: dashed solid dashed dashed;
+  border-color: transparent white transparent transparent;
+}
+
+.triangle-left, .triangle-left-border {
+  left: 100%;
+  border-style: dashed dashed dashed solid;
+  border-color: transparent transparent transparent white;
+}
+
+.triangle-left-border, .triangle-right-border {
+  top: 17px;
+  border-width: $triangleBorderSize;
+  z-index: 21;
+}
+
+.triangle-left-border {
+  border-color: transparent transparent transparent $borderColor;
+}
+
+.triangle-right-border {
+  left: -2 * $triangleBorderSize;
+  border-color: transparent $borderColor transparent transparent;
+}
+
+.hoverItem-left, .hoverItem-right {
+  top: 0;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  padding: $hoverPadding;
+  min-height: 1.5 * $itemHeight;
+  background-color: $hoverColor;
+  border: 2px solid $borderColor;
+  z-index: 20;
+  h3 {
+    color: #555;
+  }
+}
+
+.hoverItem-left{
+  margin-left: -100%;
+}
+
+.hoverItem-right{
+  margin-left: 100%;
+}
+
+.describe-section {
+  display: flex;
+  margin-top: 10px;
+  i {
+    display: inline-block;
+  }
+  p {
+    flex: 1;
+    margin-left: 10px;
+    display: inline-block;
+    word-break: break-all;
+  }
+}
+
+hr {
+  margin-top: 15px;
+  border: 1px solid $back;
 }
 
 @media (max-width: 1250px) {

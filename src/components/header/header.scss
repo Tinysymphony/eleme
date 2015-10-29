@@ -11,6 +11,18 @@
   box-shadow: 0px 2px 10px #999;
 }
 
+#logo {
+  box-sizing: border-box;
+  height: 60px;
+  img {
+    position: relative;
+    top: 10px;
+    height: 35px;
+    display: inline-block;
+  }
+  text-align: center;
+}
+
 .reHeader {
   position: relative;
   box-sizing: border-box;
@@ -20,6 +32,7 @@
 
 .header-container {
   position: relative;
+  height: 60px;
   width: 80%;
   min-width: $minWidth;
   max-width: $maxWidth;
@@ -27,6 +40,8 @@
   margin-right: auto;
   a, nav {
     display: inline-block;
+    position: relative;
+    top: 0;
     color: #FFF;
     min-width: 100px;
     text-align: center;
