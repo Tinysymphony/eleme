@@ -1,4 +1,5 @@
 require('./item.scss');
+require('./spritesheet.png');
 
 var logoArray = ["di", "fu", "jian", "pao", "piao", "shou", "zhuan"];
 
